@@ -22,7 +22,44 @@ async function getStudents(req,res) {
     }
     
 }
+
+async function getStudentForEdit(req,res) {
+    try {
+        let id=req.params.id;
+        console.log(id)
+        let student=await Student.findOne({_id:id})
+        console.log(Student)
+        res.render('studentforupdate.ejs',{
+            student:student
+        })
+    } catch (err) {
+        console.log(err)
+    }
+    
+}
+
+async function updateStudent(req,res) {
+    try {
+        let id= req.params.id;
+        let student= await Student.findOne({_id:id})
+        console.log(student,'student');
+        student.rollNo = req.body.rollNo;
+        student.firstName = req.body.firstName;
+        student.lastName = req.body.lastName;
+        student.fatherName = req.body.fatherName;
+        student.aadharCard = req.body.aadharCard;
+        student.mobileNo = req.body.mobileNo;
+        await student.save();
+
+        res.end("<h1> Student has been updated successfully...</h1>" )
+    } catch (err) {
+        console.log(err)
+    }
+    
+}
 module.exports={
     addStudent,
-    getStudents
+    getStudents,
+    getStudentForEdit,
+    updateStudent
 }

@@ -12,4 +12,10 @@ router.post('/add/student', (req,res)=>{
 router.get('/students',(req,res)=>{
   studentcontoller.getStudents(req,res);
 })
+router.get('/edit/student/page/:id',(req,res)=>{
+  studentcontoller.getStudentForEdit(req,res);
+})
+router.post('/update/student:id',(req,res)=>{
+  studentcontoller.updateStudent(req,res);
+})
 module.exports=router

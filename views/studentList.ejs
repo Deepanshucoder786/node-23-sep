@@ -12,6 +12,7 @@
                         <th>Father Name</th>
                         <th>Adhar Card</th>
                         <th>Mobile No</th>
+                        <th>Action</th>
 
                     </tr>
                 </thead>
@@ -33,6 +34,7 @@
                         <td>
                             <%= student.mobileNo %>
                         </td>
+                        <td><a class="btn btn-warning w-75" href="/edit/student/page/<%= student._id  %>">Edit</a></td>
                     </tr>
                     <% }) %>
             </table>

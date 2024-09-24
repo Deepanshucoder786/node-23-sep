@@ -50,8 +50,11 @@ async function updateStudent(req,res) {
         student.aadharCard = req.body.aadharCard;
         student.mobileNo = req.body.mobileNo;
         await student.save();
-
-        res.end("<h1> Student has been updated successfully...</h1>" )
+        let students= await Student.find({})
+        res.render('studentList.ejs',{
+            students:students
+        })
+        
     } catch (err) {
         console.log(err)
     }

@@ -60,9 +60,24 @@ async function updateStudent(req,res) {
     }
     
 }
+async function deleteStudent(req,res) {
+    try {
+        let id= req.params.id;
+        await Student.deleteOne({_id:id})
+        let students=await Student.find({})
+        res.render('studentList.ejs',{
+            students:students
+        })
+    } catch (err) {
+        console.log(err)
+    }
+    
+}
 module.exports={
     addStudent,
     getStudents,
     getStudentForEdit,
-    updateStudent
+    updateStudent,
+   deleteStudent
+    
 }

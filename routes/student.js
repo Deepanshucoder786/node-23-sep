@@ -18,4 +18,7 @@ router.get('/edit/student/page/:id',(req,res)=>{
 router.post('/update/student:id',(req,res)=>{
   studentcontoller.updateStudent(req,res);
 })
+router.get('/delete/student/:id',(req,res)=>{
+  studentcontoller.deleteStudent(req,res);
+})
 module.exports=router

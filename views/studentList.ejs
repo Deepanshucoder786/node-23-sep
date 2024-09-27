@@ -1,4 +1,4 @@
-<%-include('./base/header.ejs') %>
+<%- include('./base/header.ejs') %>
 
     <div class="container">
         <div class="row">
@@ -27,14 +27,19 @@
                         <td>
                             <%= student.lastName %>
                         </td>
-                        <td> <%= student.fatherName %></td>
+                        <td>
+                            <%= student.fatherName %>
+                        </td>
                         <td>
                             <%= student.adharCardNo %>
                         </td>
                         <td>
                             <%= student.mobileNo %>
                         </td>
-                        <td><a class="btn btn-warning w-75" href="/edit/student/page/<%= student._id  %>">Edit</a></td>
+                        <td>
+                            <a class="btn btn-warning w-30" href="/edit/student/page/<%= student._id  %>">Edit</a>
+                            <a class="btn btn-danger w-30" href="/delete/student/<%= student._id  %>">Delete</a>
+                        </td>
                     </tr>
                     <% }) %>
             </table>
